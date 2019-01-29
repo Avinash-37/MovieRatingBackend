@@ -3,10 +3,10 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 //import axios from 'axios';
 
-export default class Content extends Component{
+export default class Signup extends Component{
   
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
@@ -14,7 +14,7 @@ export default class Content extends Component{
         event.preventDefault();
         const data = new FormData(event.target);
         
-        fetch("http://localhost:5000/user/signin",{
+        fetch("http://localhost:5000/user/signup",{
           method:"POST",
           headers:{
           'Content-Type':'application/json'
@@ -55,13 +55,13 @@ export default class Content extends Component{
                                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
                                     </div>
                                     <br />
-                                    <button type="submit" class="btn btn-primary" onClick={this.handleClick}>Sign In</button>
+                                    <button type="submit" class="btn btn-primary" onClick={this.handleClick}>Submit</button>
                                 </form>
                         </div>
                     <div class="col-xl-6 col-sm-12 col-md-12" align="center">
                            
                             <div class="col-xl-8">
-                                    <h3>Sign In using</h3><br />
+                                    <h3>Sign Up using</h3><br />
                                     <FacebookLogin
                                         appId="389230111637590"
                                         buttonText="Facebook"
