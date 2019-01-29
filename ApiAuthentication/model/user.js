@@ -27,6 +27,9 @@ const userSchema = new Schema({
         email:{
             type:String,
             lowercase: true
+        },
+        accessToken:{
+            type: String,
         }
 
     } ,
@@ -37,16 +40,12 @@ const userSchema = new Schema({
         email:{
             type:String,
             lowercase: true
-        }
-
-    },
-    movie: {
-        id:{
-            type: String
         },
-        movieName:{
-            type:String,
-            lowercase: true
+        refreshToken:{
+            type: String,
+        },
+        accessToken:{
+            type: String,
         }
 
     }

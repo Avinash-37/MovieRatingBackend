@@ -1,22 +1,27 @@
 const mongoose =require('mongoose');
+require('mongoose-double')(mongoose);
 
-const Schema =mongoose.Schema;
+var SchemaTypes = mongoose.Schema.Types;
 
-const movieList = new Schema({
-    id:{
-        type : String
-    },
+const movieList = mongoose.Schema({
     name :{
         type : String,
         required : true
     },
+    actors :{
+        type : String
+    },
+    director :{
+        type : String,
+        required : true
+    },
     date : {
-        type : Date,
+        type : Date , default: Date.now ,
         required: true
     }
 });
 
-const Movies = mongoose.model('movies',movieList);
+const Movies = mongoose.model('movies',movieList,'movies');
 
 // Export the model
 module.exports = Movies;

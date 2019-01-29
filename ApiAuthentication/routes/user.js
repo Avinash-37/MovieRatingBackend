@@ -6,8 +6,26 @@ const passport =require('passport');
 const passportConf = require('../passport');
 
 
+router.route('/insertmovie')
+    .post( UserController.insertmovie);
+
 router.route('/movieList')
     .get( UserController.movieList);
+    
+router.route('/movierating')
+    .post( UserController.movierating);
+
+router.route('/getmovierating')
+    .get( UserController.Getmovierating);
+
+router.route('/sortbydate')
+    .get( UserController.SortMoviesByDate);
+
+router.route('/sortbyrate')
+    .get( UserController.SortMoviesByRating);
+
+router.route('/singlemoviestar')
+    .post( UserController.GetSingleMovieRating);
 
 router.route('/signup')
     .post(validateBody(schemas.authschema), UserController.signUp);
