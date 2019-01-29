@@ -34,7 +34,7 @@ passport.use('googleToken',new GooglePlusTokenStrategy({
         console.log('access token',accessToken);
         console.log('refresh token',refreshToken);
         console.log('Profile ',profile);
-        // CHECK WHETHER THIS CURRENT USER EXIST IN OUR DB
+        // CHECK WHETHER THIS CURRENT USER EXIST IN OUR DBjkj
         const existingUser = await User.findOne({"google.id": profile.id});
         if(existingUser){
             console.log('User Already exist in DB');
@@ -46,7 +46,9 @@ passport.use('googleToken',new GooglePlusTokenStrategy({
                 method: 'google',
                 google:{
                     id: profile.id,
-                    email: profile.emails[0].value
+                    email: profile.emails[0].value,
+                    refreshToken : refreshToken,
+                    accessToken : accessToken
                 }
             });
             await newUser.save();
@@ -79,7 +81,8 @@ passport.use('facebookToken',new FacebookTokenStrategy({
                 method: 'facebook',
                 facebook:{
                     id: profile.id,
-                    email: profile.emails[0].value
+                    email: profile.emails[0].value,
+                    accessToken :accessToken
                 }
             });
             await newUser.save();
